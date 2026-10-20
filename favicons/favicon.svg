@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="icon-title">
+  <title id="icon-title">WORD — Guess The Word</title>
+  <rect x="20" y="20" width="228" height="228" rx="40" fill="#006c49" />
+  <rect x="264" y="20" width="228" height="228" rx="40" fill="#c99d05" />
+  <rect x="20" y="264" width="228" height="228" rx="40" fill="#64748b" />
+  <rect x="264" y="264" width="228" height="228" rx="40" fill="#006c49" />
+  <path transform="translate(20 20)" fill="#fff" d="M32 45H63L82 134L101 45H128L147 134L166 45H197L164 183H135L114 105L93 183H64Z" />
+  <path transform="translate(264 20)" fill="#17212b" fill-rule="evenodd" d="M114 40C157 40 185 69 185 114S157 188 114 188S43 159 43 114S71 40 114 40ZM114 73C91 73 78 88 78 114S91 155 114 155S150 140 150 114S137 73 114 73Z" />
+  <path transform="translate(20 264)" fill="#fff" fill-rule="evenodd" d="M52 42H117C156 42 178 62 178 94C178 116 167 132 148 140L183 186H144L114 145H84V186H52ZM84 72V116H115C135 116 145 108 145 94S135 72 115 72Z" />
+  <path transform="translate(264 264)" fill="#fff" fill-rule="evenodd" d="M50 42H110C158 42 186 70 186 114S158 186 110 186H50ZM82 73V155H108C137 155 153 140 153 114S137 73 108 73Z" />
+</svg>

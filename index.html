@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Guess the hidden five-letter word in five attempts. Use color clues and two hints, challenge your vocabulary, and build your winning streak."
+    />
+    <meta name="author" content="Abdo Basosy" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Guess The Word | Five-Letter Word Game"
+    />
+    <meta
+      property="og:description"
+      content="Five letters, five attempts, and two hints. Follow the color clues to solve the word and keep your winning streak going!"
+    />
+    <meta
+      property="og:url"
+      content="https://basosytech.github.io/Basosy-wordle-game/"
+    />
+    <meta
+      property="og:image"
+      content="https://basosytech.github.io/Basosy-wordle-game/screenshots/banner-screen.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Guess The Word | Five-Letter Word Game"
+    />
+    <meta
+      name="twitter:description"
+      content="Five letters, five attempts, and two hints. Follow the color clues to solve the word and keep your winning streak going!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://basosytech.github.io/Basosy-wordle-game/screenshots/banner-screen.png"
+    />
+    <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="favicons/favicon.png"
+    />
+    <title>Guess The Word</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="master.css" />
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" hidden>
+      <symbol id="icon-hint" viewBox="0 0 640 640">
+        <path
+          d="M424.5 355.1C449 329.2 464 294.4 464 256C464 176.5 399.5 112 320 112C240.5 112 176 176.5 176 256C176 294.4 191 329.2 215.5 355.1C236.8 377.5 260.4 409.1 268.8 448L371.2 448C379.6 409 403.2 377.5 424.5 355.1zM459.3 388.1C435.7 413 416 443.4 416 477.7L416 496C416 540.2 380.2 576 336 576L304 576C259.8 576 224 540.2 224 496L224 477.7C224 443.4 204.3 413 180.7 388.1C148 353.7 128 307.2 128 256C128 150 214 64 320 64C426 64 512 150 512 256C512 307.2 492 353.7 459.3 388.1zM272 248C272 261.3 261.3 272 248 272C234.7 272 224 261.3 224 248C224 199.4 263.4 160 312 160C325.3 160 336 170.7 336 184C336 197.3 325.3 208 312 208C289.9 208 272 225.9 272 248z"
+        />
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 640 640">
+        <path
+          d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288L96 288C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352L466.7 352L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+        />
+      </symbol>
+      <symbol id="icon-streak" viewBox="0 0 640 640">
+        <path
+          d="M256.5 37.6C265.8 29.8 279.5 30.1 288.4 38.5C300.7 50.1 311.7 62.9 322.3 75.9C335.8 92.4 352 114.2 367.6 140.1C372.8 133.3 377.6 127.3 381.8 122.2C382.9 120.9 384 119.5 385.1 118.1C393 108.3 402.8 96 415.9 96C429.3 96 438.7 107.9 446.7 118.1C448 119.8 449.3 121.4 450.6 122.9C460.9 135.3 474.6 153.2 488.3 175.3C515.5 219.2 543.9 281.7 543.9 351.9C543.9 475.6 443.6 575.9 319.9 575.9C196.2 575.9 96 475.7 96 352C96 260.9 137.1 182 176.5 127C196.4 99.3 216.2 77.1 231.1 61.9C239.3 53.5 247.6 45.2 256.6 37.7zM321.7 480C347 480 369.4 473 390.5 459C432.6 429.6 443.9 370.8 418.6 324.6C414.1 315.6 402.6 315 396.1 322.6L370.9 351.9C364.3 359.5 352.4 359.3 346.2 351.4C328.9 329.3 297.1 289 280.9 268.4C275.5 261.5 265.7 260.4 259.4 266.5C241.1 284.3 207.9 323.3 207.9 370.8C207.9 439.4 258.5 480 321.6 480z"
+        />
+      </symbol>
+      <symbol id="icon-score" viewBox="0 0 640 640">
+        <path
+          d="M512 320C512 214 426 128 320 128C214 128 128 214 128 320C128 426 214 512 320 512C426 512 512 426 512 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320zM320 400C364.2 400 400 364.2 400 320C400 275.8 364.2 240 320 240C275.8 240 240 275.8 240 320C240 364.2 275.8 400 320 400zM320 176C399.5 176 464 240.5 464 320C464 399.5 399.5 464 320 464C240.5 464 176 399.5 176 320C176 240.5 240.5 176 320 176zM288 320C288 302.3 302.3 288 320 288C337.7 288 352 302.3 352 320C352 337.7 337.7 352 320 352C302.3 352 288 337.7 288 320z"
+        />
+      </symbol>
+      <symbol id="icon-time" viewBox="0 0 640 640">
+        <path
+          d="M528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320zM64 320C64 461.4 178.6 576 320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"
+        />
+      </symbol>
+      <symbol id="icon-again" viewBox="0 0 640 640">
+        <path
+          d="M129.9 292.5C143.2 199.5 223.3 128 320 128C373 128 421 149.5 455.8 184.2C456 184.4 456.2 184.6 456.4 184.8L464 192L416.1 192C398.4 192 384.1 206.3 384.1 224C384.1 241.7 398.4 256 416.1 256L544.1 256C561.8 256 576.1 241.7 576.1 224L576.1 96C576.1 78.3 561.8 64 544.1 64C526.4 64 512.1 78.3 512.1 96L512.1 149.4L500.8 138.7C454.5 92.6 390.5 64 320 64C191 64 84.3 159.4 66.6 283.5C64.1 301 76.2 317.2 93.7 319.7C111.2 322.2 127.4 310 129.9 292.6zM573.4 356.5C575.9 339 563.7 322.8 546.3 320.3C528.9 317.8 512.6 330 510.1 347.4C496.8 440.4 416.7 511.9 320 511.9C267 511.9 219 490.4 184.2 455.7C184 455.5 183.8 455.3 183.6 455.1L176 447.9L223.9 447.9C241.6 447.9 255.9 433.6 255.9 415.9C255.9 398.2 241.6 383.9 223.9 383.9L96 384C87.5 384 79.3 387.4 73.3 393.5C67.3 399.6 63.9 407.7 64 416.3L65 543.3C65.1 561 79.6 575.2 97.3 575C115 574.8 129.2 560.4 129 542.7L128.6 491.2L139.3 501.3C185.6 547.4 249.5 576 320 576C449 576 555.7 480.6 573.4 356.5z"
+        />
+      </symbol>
+      <symbol id="icon-win" viewBox="0 0 640 640">
+        <path
+          d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320C528 205.1 434.9 112 320 112zM390.7 233.9C398.5 223.2 413.5 220.8 424.2 228.6C434.9 236.4 437.3 251.4 429.5 262.1L307.4 430.1C303.3 435.8 296.9 439.4 289.9 439.9C282.9 440.4 276 437.9 271.1 433L215.2 377.1C205.8 367.7 205.8 352.5 215.2 343.2C224.6 333.9 239.8 333.8 249.1 343.2L285.1 379.2L390.7 234z"
+        />
+      </symbol>
+      <symbol id="icon-lose" viewBox="0 0 640 640">
+        <path
+          d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320zM398.7 448.6C383.7 433 357.6 416 320 416C282.4 416 256.3 433 241.3 448.6C232.1 458.2 216.9 458.5 207.4 449.3C197.9 440.1 197.5 424.9 206.7 415.4C228.8 392.4 266.7 368 320 368C373.3 368 411.2 392.4 433.3 415.4C442.5 425 442.2 440.2 432.6 449.3C423 458.4 407.8 458.2 398.7 448.6zM208 272C208 254.3 222.3 240 240 240C257.7 240 272 254.3 272 272C272 289.7 257.7 304 240 304C222.3 304 208 289.7 208 272zM400 240C417.7 240 432 254.3 432 272C432 289.7 417.7 304 400 304C382.3 304 368 289.7 368 272C368 254.3 382.3 240 400 240z"
+        />
+      </symbol>
+    </svg>
+    <header>Guess The Word</header>
+    <main class="container">
+      <section class="start-screen">
+        <h1 class="start-screen__title">Guess The Word</h1>
+        <p class="start-screen__description">
+          Guess the hidden word in limited tries. Mindful, tactile color clues
+          will guide your way.
+        </p>
+        <div class="start-screen__preview" aria-hidden="true">
+          <span class="start-screen__tile">S</span>
+          <span class="start-screen__tile">E</span>
+          <span class="start-screen__tile">R</span>
+          <span class="start-screen__tile">E</span>
+          <span class="start-screen__tile">N</span>
+          <span class="start-screen__tile">E</span>
+        </div>
+        <div class="legend legend--start-screen">
+          <span class="legend__badge legend__badge--correct">Right Place</span>
+          <span class="legend__badge legend__badge--present">Wrong Place</span>
+          <span class="legend__badge legend__badge--absent">Not In Word</span>
+        </div>
+        <button type="button" class="start-screen__btn" id="start-game-btn">
+          Start The Game
+        </button>
+      </section>
+      <section class="game-screen" aria-label="Game Board" hidden>
+        <div class="game-screen__info" role="status" aria-live="polite">
+          <p class="game-screen__attempt-box">
+            Attempt <output class="game-screen__current-attempt"></output> of
+            <span class="game-screen__max-attempts"></span>
+          </p>
+          <p class="game-screen__hint-label">
+            <svg class="hint-icon" aria-hidden="true" focusable="false">
+              <use href="#icon-hint" />
+            </svg>
+            <output class="game-screen__hint-count"></output> Hints Left
+          </p>
+        </div>
+        <section
+          class="tries-container"
+          role="grid"
+          aria-label="Wordle Guess Grid"
+        >
+          <div class="tries-container__rows"></div>
+          <div class="legend legend--tries-container">
+            <span class="legend__badge legend__badge--correct"
+              >Right Place</span
+            >
+            <span class="legend__badge legend__badge--present"
+              >Wrong Place</span
+            >
+            <span class="legend__badge legend__badge--absent">Not In Word</span>
+          </div>
+        </section>
+        <div class="game-screen__actions">
+          <button class="game-screen__btn game-screen__btn--hint">
+            <svg class="hint-icon" aria-hidden="true" focusable="false">
+              <use href="#icon-hint" />
+            </svg>
+            Use Hint (<output class="game-screen__hint-count"></output> Left)
+          </button>
+          <button class="game-screen__btn game-screen__btn--check">
+            Check Word
+            <svg class="check-icon"><use href="#icon-check" /></svg>
+          </button>
+        </div>
+        <section class="keyboard">
+          <div class="keyboard__row keyboard__row--first">
+            <button class="keyboard__key" data-key="Q">Q</button>
+            <button class="keyboard__key" data-key="W">W</button>
+            <button class="keyboard__key" data-key="E">E</button>
+            <button class="keyboard__key" data-key="R">R</button>
+            <button class="keyboard__key" data-key="T">T</button>
+            <button class="keyboard__key" data-key="Y">Y</button>
+            <button class="keyboard__key" data-key="U">U</button>
+            <button class="keyboard__key" data-key="I">I</button>
+            <button class="keyboard__key" data-key="O">O</button>
+            <button class="keyboard__key" data-key="P">P</button>
+          </div>
+          <div class="keyboard__row keyboard__row--second">
+            <button class="keyboard__key" data-key="A">A</button>
+            <button class="keyboard__key" data-key="S">S</button>
+            <button class="keyboard__key" data-key="D">D</button>
+            <button class="keyboard__key" data-key="F">F</button>
+            <button class="keyboard__key" data-key="G">G</button>
+            <button class="keyboard__key" data-key="H">H</button>
+            <button class="keyboard__key" data-key="J">J</button>
+            <button class="keyboard__key" data-key="K">K</button>
+            <button class="keyboard__key" data-key="L">L</button>
+            <button
+              class="keyboard__key keyboard__key--enter"
+              data-key="Enter"
+              aria-label="Submit guess"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.0"
+                viewBox="0 0 512.000000 512.000000"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <g
+                  transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                  fill="#000000"
+                  stroke="none"
+                >
+                  <path
+                    d="M4186 3825 c-21 -7 -54 -28 -73 -46 -58 -57 -63 -91 -63 -463 -1 -463 -9 -508 -112 -621 -70 -77 -146 -112 -268 -125 -56 -6 -546 -10 -1200 -10 l-1104 0 266 268 c275 276 288 293 288 372 0 76 -55 159 -124 191 -50 23 -124 24 -174 4 -53 -22 -934 -904 -962 -962 -25 -53 -25 -116 -1 -168 13 -27 171 -192 482 -501 504 -501 493 -492 592 -481 125 15 215 154 177 273 -10 30 -72 99 -278 307 l-267 267 1040 0 c1091 0 1322 7 1462 40 154 36 318 142 419 268 59 74 128 217 153 314 30 117 41 280 41 618 0 300 -1 306 -24 356 -45 97 -158 139 -270 99z"
+                  />
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div class="keyboard__row keyboard__row--third">
+            <button class="keyboard__key" data-key="Z">Z</button>
+            <button class="keyboard__key" data-key="X">X</button>
+            <button class="keyboard__key" data-key="C">C</button>
+            <button class="keyboard__key" data-key="V">V</button>
+            <button class="keyboard__key" data-key="B">B</button>
+            <button class="keyboard__key" data-key="N">N</button>
+            <button class="keyboard__key" data-key="M">M</button>
+            <button
+              class="keyboard__key keyboard__key--backspace"
+              data-key="Backspace"
+              aria-label="Delete letter"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -0.5 25 25"
+                fill="none"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.91006 12.6651L8.35606 15.5261C8.59533 15.82 8.95209 15.9935 9.33106 16.0001L13.0501 15.9931H16.2391C18.0288 16.0036 19.4885 14.5618 19.5001 12.7721V10.2221C19.4891 8.43193 18.0292 6.98953 16.2391 7.00006L9.33106 7.00706C8.95226 7.01341 8.59552 7.18647 8.35606 7.48006L5.91006 10.3421C5.36331 11.0199 5.36331 11.9872 5.91006 12.6651V12.6651Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12.1603 9.46359C11.864 9.17409 11.3892 9.17957 11.0997 9.47582C10.8102 9.77207 10.8156 10.2469 11.1119 10.5364L12.1603 9.46359ZM12.6469 12.0364C12.9431 12.3259 13.418 12.3204 13.7075 12.0242C13.997 11.7279 13.9915 11.2531 13.6953 10.9636L12.6469 12.0364ZM13.6963 10.9646C13.4006 10.6745 12.9258 10.6791 12.6357 10.9748C12.3456 11.2705 12.3502 11.7453 12.6458 12.0354L13.6963 10.9646ZM14.1748 13.5354C14.4705 13.8255 14.9454 13.8209 15.2355 13.5252C15.5255 13.2295 15.521 12.7547 15.2253 12.4646L14.1748 13.5354ZM13.6953 12.0364C13.9915 11.7469 13.997 11.2721 13.7075 10.9758C13.418 10.6796 12.9431 10.6741 12.6469 10.9636L13.6953 12.0364ZM11.1119 12.4636C10.8156 12.7531 10.8102 13.2279 11.0997 13.5242C11.3892 13.8204 11.864 13.8259 12.1603 13.5364L11.1119 12.4636ZM12.6458 10.9646C12.3502 11.2547 12.3456 11.7295 12.6357 12.0252C12.9258 12.3209 13.4006 12.3255 13.6963 12.0354L12.6458 10.9646ZM15.2253 10.5354C15.521 10.2453 15.5255 9.77046 15.2355 9.47477C14.9454 9.17909 14.4705 9.17454 14.1748 9.46462L15.2253 10.5354ZM11.1119 10.5364L12.6469 12.0364L13.6953 10.9636L12.1603 9.46359L11.1119 10.5364ZM12.6458 12.0354L14.1748 13.5354L15.2253 12.4646L13.6963 10.9646L12.6458 12.0354ZM12.6469 10.9636L11.1119 12.4636L12.1603 13.5364L13.6953 12.0364L12.6469 10.9636ZM13.6963 12.0354L15.2253 10.5354L14.1748 9.46462L12.6458 10.9646L13.6963 12.0354Z"
+                  fill="#000000"
+                />
+              </svg>
+            </button>
+          </div>
+        </section>
+        <div class="game-screen__toasts"></div>
+      </section>
+      <dialog
+        class="result-modal"
+        id="result-modal"
+        aria-labelledby="result-modal__title"
+      >
+        <svg class="result-modal__svg result-modal__svg--win" hidden>
+          <use href="#icon-win"></use>
+        </svg>
+        <svg class="result-modal__svg result-modal__svg--lose" hidden>
+          <use href="#icon-lose"></use>
+        </svg>
+        <h2 class="result-modal__title" id="result-modal__title"></h2>
+        <p class="result-modal__description"></p>
+        <p class="result-modal__word-label"></p>
+        <div class="result-modal__word-letters"></div>
+        <div class="result-modal__stats">
+          <div class="result-modal__box result-modal__box--hint">
+            <div class="result-modal__icon-wrap result-modal__icon-wrap--hint">
+              <svg class="hint-icon" aria-hidden="true" focusable="false">
+                <use href="#icon-hint" />
+              </svg>
+            </div>
+            <div class="result-modal__box-info">
+              <span
+                class="result-modal__value result-modal__value--hint"
+              ></span>
+              <span class="result-modal__label">Hint Used</span>
+            </div>
+          </div>
+          <div class="result-modal__box result-modal__box--streak">
+            <div
+              class="result-modal__icon-wrap result-modal__icon-wrap--streak"
+            >
+              <svg class="streak-icon"><use href="#icon-streak"></use></svg>
+            </div>
+            <div class="result-modal__box-info">
+              <span
+                class="result-modal__value result-modal__value--streak"
+              ></span>
+              <span class="result-modal__label">Streak</span>
+            </div>
+          </div>
+          <div class="result-modal__box result-modal__box--score" hidden>
+            <div class="result-modal__icon-wrap result-modal__icon-wrap--score">
+              <svg class="score-icon"><use href="#icon-score"></use></svg>
+            </div>
+            <div class="result-modal__box-info">
+              <span
+                class="result-modal__value result-modal__value--score"
+              ></span>
+              <span class="result-modal__label">Score</span>
+            </div>
+          </div>
+          <div class="result-modal__box result-modal__box--timer" hidden>
+            <div class="result-modal__icon-wrap result-modal__icon-wrap--timer">
+              <svg class="time-icon"><use href="#icon-time"></use></svg>
+            </div>
+            <div class="result-modal__box-info">
+              <span
+                class="result-modal__value result-modal__value--timer"
+              ></span>
+              <span class="result-modal__label">Time</span>
+            </div>
+          </div>
+        </div>
+        <button class="result-modal__btn">
+          <svg class="again-icon"><use href="#icon-again"></use></svg>
+          Try Again
+        </button>
+      </dialog>
+    </main>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>
