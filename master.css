@@ -642,7 +642,7 @@ header::after {
   border-radius: 6px;
   font-weight: 500;
   margin-bottom: 5px;
-  animation: toastFlow 3s ease forwards;
+  animation: toastFlow 5s ease forwards;
 }
 .game-screen__toast--exiting {
   animation: toastQuickExit 0.25s ease forwards;
