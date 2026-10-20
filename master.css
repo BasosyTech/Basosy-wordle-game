@@ -138,9 +138,6 @@ header::after {
 .start-screen__tile:nth-child(5) {
   background-color: var(--color-present);
 }
-.start-screen__tile:nth-child(6) {
-  background-color: var(--color-absent);
-}
 .legend--start-screen {
   margin-bottom: 15px;
   width: 670px;
