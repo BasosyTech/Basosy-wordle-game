@@ -366,12 +366,14 @@ header::after {
   gap: 5px;
   margin-bottom: 5px;
 }
-.keyboard__row--first,
-.keyboard__row--third {
+.keyboard__row--first {
   padding-inline: clamp(7px, 2vw, 10px);
 }
 .keyboard__row--second {
   padding-inline: 12px;
+}
+.keyboard__row--third {
+  padding-inline: 25px;
 }
 .keyboard__key {
   width: 48px;
