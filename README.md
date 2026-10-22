@@ -4,7 +4,7 @@ A responsive Wordle-inspired game built with **HTML5, CSS3, and Vanilla JavaScri
 
 Players try to guess a hidden five-letter word in five attempts, using color feedback and hints to find the answer.
 
-The game includes dictionary validation, physical and on-screen keyboards, round scoring, and a winning streak saved between visits.
+The game includes physical and on-screen keyboards, round scoring, and a winning streak saved between visits.
 
 ---
 
@@ -18,8 +18,7 @@ The game includes dictionary validation, physical and on-screen keyboards, round
 
 - 120 possible answers with no immediate repeat between rounds
 - Five attempts and two hints per round
-- Local dictionary with 11,846 accepted guesses
-- Invalid words do not consume an attempt
+- Any five-letter English guess is accepted; incomplete guesses do not consume an attempt
 - Color feedback for correct, misplaced, and absent letters
 - Repeated-letter evaluation based on the answer's letter counts
 - On-screen and physical keyboard support
@@ -59,7 +58,6 @@ The game includes dictionary validation, physical and on-screen keyboards, round
 - ES Modules
 - DOM manipulation and Event Delegation
 - `DocumentFragment` and `replaceChildren()`
-- `Set` for dictionary lookups
 - Guard Clauses
 - `localStorage` with error handling
 - Native `<dialog>` API
@@ -72,8 +70,8 @@ The game includes dictionary validation, physical and on-screen keyboards, round
 1. The player selects **Start The Game**.
 2. A random word is selected from the answer list.
 3. The player enters a five-letter word using the physical or on-screen keyboard.
-4. The guess is checked against the accepted-word dictionary.
-5. Valid guesses receive color feedback:
+4. The game checks that the guess contains five letters.
+5. Completed guesses receive color feedback:
    - 🟩 **Green:** correct letter in the correct position.
    - 🟨 **Yellow:** correct letter in another position.
    - **Gray:** no remaining occurrence of that letter in the answer.
@@ -85,18 +83,9 @@ A hint reveals a letter and its position through a message. The current guess mu
 
 ---
 
-## 🔤 Word Validation & Letter Evaluation
+## 🔤 Letter Evaluation
 
-The game keeps two separate word collections:
-
-- `words.js`: 120 words used as possible answers.
-- `allowed-guesses.js`: a larger `Set` of accepted five-letter guesses, including every possible answer.
-
-Guesses are validated locally using:
-
-```javascript
-ALLOWED_GUESSES.has(guessedWord)
-```
+The 120 possible answers are stored in `js/words.js`. Players can submit any five-letter English combination without a dictionary check.
 
 Letter evaluation happens in two passes: exact matches first, then misplaced letters using the remaining letter counts. This prevents extra repeated letters from receiving incorrect feedback.
 
@@ -138,10 +127,7 @@ Basosy-wordle-game/
 │   ├── logic.js
 │   ├── ui.js
 │   ├── utils.js
-│   ├── words.js
-│   └── allowed-guesses.js
-├── licenses/
-│   └── wordnik-MIT.txt
+│   └── words.js
 ├── screenshots/
 │   ├── banner-screen.png
 │   ├── start-screen.png
@@ -167,7 +153,6 @@ Basosy-wordle-game/
 | `js/ui.js` | Grid rendering, keyboard feedback, hints, and results |
 | `js/utils.js` | Random selection and elapsed-time formatting |
 | `js/words.js` | Possible answers |
-| `js/allowed-guesses.js` | Accepted-guess dictionary |
 
 Game evaluation and scoring are separated from DOM updates. The UI uses cached DOM references, event delegation, and `DocumentFragment` when creating the grid.
 
@@ -196,14 +181,6 @@ Game evaluation and scoring are separated from DOM updates. The UI uses cached D
 ### Result Screen
 
 ![Result Screen](screenshots/result-screen.png)
-
----
-
-## 📚 Word List Credits
-
-The accepted-guess dictionary is derived from the [Wordnik Wordlist](https://github.com/wordnik/wordlist), filtered to unique five-letter English entries and converted to uppercase. It includes uncommon words as well as familiar ones.
-
-The original copyright and MIT license notice are included in [licenses/wordnik-MIT.txt](licenses/wordnik-MIT.txt).
 
 ---
 
