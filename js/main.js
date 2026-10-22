@@ -1,5 +1,4 @@
 import { WORDS } from "./words.js";
-import { ALLOWED_GUESSES } from "./allowed-guesses.js";
 import * as UI from "./ui.js";
 import { getRandomItem, getElapsedTimeText } from "./utils.js";
 import { evaluateGuess, calculateScore } from "./logic.js";
@@ -171,11 +170,6 @@ function checkAnswer() {
   );
   if (guessedWord.length < targetWord.length) {
     UI.shakeRow(currentRow);
-    return;
-  }
-  if (!ALLOWED_GUESSES.has(guessedWord)) {
-    UI.shakeRow(currentRow);
-    UI.showToast("Word not in the word list", gameElements.toastContainer);
     return;
   }
   currentRow.classList.replace(
